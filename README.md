@@ -7,5 +7,5 @@ Nils Coudry
 Python
 
 ## Utilisations
-Repository pour les différents TP d'informatique 
+Repository pour stocker les différents TP d'informatique 
 
