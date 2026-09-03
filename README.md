@@ -3,8 +3,8 @@
 ## Auteur 
 Nils Coudry
 
-# Language utilisé
+## Langage utilisé
 Python
 
-# Utilisations
+## Utilisations
 Repository pour les TP d'informatique du premier semestre 
