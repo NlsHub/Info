@@ -7,4 +7,5 @@ Nils Coudry
 Python
 
 ## Utilisations
-Repository pour les TP d'informatique du premier semestre 
+Repository pour les différents TP d'informatique 
+
