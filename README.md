@@ -1,6 +1,6 @@
 # Info
 
-# Auteur 
+## Auteur 
 Nils Coudry
 
 # Language utilisé
