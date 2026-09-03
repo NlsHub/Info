@@ -4,7 +4,7 @@
 Nils Coudry
 
 ## Langage utilisé
-Python
+Python 3.12.5
 
 ## Utilisations
 Repository pour stocker les différents TP d'informatique 
