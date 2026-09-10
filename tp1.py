@@ -129,8 +129,10 @@ def immatriculation() :
         plaque += f"{lettre}"
 
         if i == 1:
-            nombre = randint(100, 999)
-            plaque += f"-{nombre}-"
+            nombre1 = randint(0, 9)
+            nombre2 = randint(0, 9)
+            nombre3 = randint(0, 9)
+            plaque += f"-{nombre1}{nombre2}{nombre3}-"
 
         
         
