@@ -28,3 +28,10 @@ def Nentier():
     print("maximum : ", listeEntier[-1])
 
 Nentier()
+
+#Exercice 3:
+
+def conversionAgeChien(age) : 
+    assert age > 0, "Vous ne pouvez pas entrer un nombre négatif !"
+    age = ((age-1) * 4) + 10.5
+    return age
