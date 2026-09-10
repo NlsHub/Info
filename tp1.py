@@ -55,10 +55,20 @@ def approximationPi(n):
         nb2 += 2
         nb3 += 2
 
-    return pi
+    print(pi)
 
-print(approximationPi(15))
 
 #Exercice 5:
 
 def decimalBinaire():
+    resultat1 = ""
+    resultat2 = ""
+    q = nombre
+    while q != 0 :
+        r = q%2
+        resultat1 += str(r)
+        q = q//2
+    for i in range(0, len(resultat1), -1):
+        resultat2 += resultat1[i]
+    return resultat2
+
