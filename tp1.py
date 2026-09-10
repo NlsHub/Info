@@ -72,3 +72,41 @@ def decimalBinaire():
         resultat2 += resultat1[i]
     return resultat2
 
+#Exercice 6:
+
+def revisionEx1():
+
+    operation = ""
+    operateurDico = {"a" : " + ", "s" : " - ", "m" : " * ", "d" : " / "}
+    operateur = str(input("Donnez le type d'opération souhaité ((a)ddition, (s)oustraction, (m)ultiplication et (d)ivision) : "))
+
+    operateur = operateur.lower()
+
+    if operateur not in ["a", "s", "m", "d"] :
+        return "Vous n'avez pas donner le type d'opération souhaité"
+    
+    nb1 = float(input("Donnez un premier nombre à insérer dans le calcul : "))
+    nb2 = float(input("Donnez le deuxième nombre à insérer dans le calcul : "))
+    assert isinstance(nb1,float ), "Vous n'avez pas entré un entier, la saisie n'est pas correct"
+    assert isinstance(nb2, float), "Vous n'avez pas entré un entier, la saisie n'est pas correct"
+
+    continuer = "o"
+    while continuer == "o" :
+        if operateur == "a" :
+            resultat = nb1 + nb2
+        elif operateur == "s" :
+            resultat = nb1 - nb2
+        elif operateur == "m" :
+            resultat = nb1 * nb2
+        else :
+            if nb2 == 0 :
+                return "résultat non déterminé : la division par zéro est impossible"
+            resultat = nb1 / nb2
+        
+
+        operation += str(nb1) + operateurDico[operateur] + str(nb2) + " = " + str(resultat)
+        print(operation)
+        
+        continuer = str(input("un autre calcul ? (o/n) : "))
+
+revisionEx1()
