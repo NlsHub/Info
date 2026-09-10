@@ -134,9 +134,21 @@ def immatriculation() :
             nombre3 = randint(0, 9)
             plaque += f"-{nombre1}{nombre2}{nombre3}-"
 
-        
-        
     print(plaque)
 
-immatriculation()
+#______________________________________________________________________DLC_______________________________________________________________
 
+#Exercice 2
+
+def fizzBuzz(liste):
+    for i in range(len(liste)):
+        if liste[i]%3 == 0 and liste[i]%5 != 0:
+            print("Fizz", end = ' ')
+        elif liste[i]%5 == 0 and liste[i]%3 != 0:
+            print("Buzz", end = ' ')
+        elif liste[i]%5 == 0 and liste[i]%3 == 0:
+            print("Fizzbuzz", end = ' ')
+        else :
+            print(liste[i], end = ' ')
+
+fizzBuzz([5,8,7,4,1,3,6,9,5])
