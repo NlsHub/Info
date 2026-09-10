@@ -8,7 +8,7 @@ def imc():
 
 #Exercice 2:
 
-def Nentier():
+def nEntier():
     listeEntier = [] 
     n = 0
     moyenne = 0
@@ -27,7 +27,6 @@ def Nentier():
     print("minimum : ", listeEntier[1])
     print("maximum : ", listeEntier[-1])
 
-Nentier()
 
 #Exercice 3:
 
@@ -35,3 +34,31 @@ def conversionAgeChien(age) :
     assert age > 0, "Vous ne pouvez pas entrer un nombre négatif !"
     age = ((age-1) * 4) + 10.5
     return age
+
+#Exercice 4:
+
+def approximationPi(n):
+    assert isinstance(n, int), "n n'est pas un entier"
+    assert n > 0, "n n'est pas positif"
+
+    pi = 3
+    nb1 = 2
+    nb2 = 3
+    nb3 = 4
+
+    for i in range(1, n+1):
+        if i%2 != 0 :
+            pi += 4/(nb1*nb2*nb3)
+        else :
+            pi -= 4/(nb1*nb2*nb3)
+        nb1 += 2
+        nb2 += 2
+        nb3 += 2
+
+    return pi
+
+print(approximationPi(15))
+
+#Exercice 5:
+
+def decimalBinaire():
