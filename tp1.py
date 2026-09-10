@@ -109,4 +109,32 @@ def revisionEx1():
         
         continuer = str(input("un autre calcul ? (o/n) : "))
 
-revisionEx1()
+
+#Exercice 7:
+
+from string import *
+from random import randint
+
+def immatriculation() :
+    plaque = ""
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+    for i in range(4):
+        indiceLettre = randint(0, 25)
+        if alphabet[indiceLettre] == "s" and plaque[-1] == "S" :
+            while alphabet[indiceLettre] == "s" :
+                indiceLettre = randint(0, 26)
+
+        lettre = alphabet[indiceLettre].upper()
+        plaque += f"{lettre}"
+
+        if i == 1:
+            nombre = randint(100, 999)
+            plaque += f"-{nombre}-"
+
+        
+        
+    print(plaque)
+
+immatriculation()
+
