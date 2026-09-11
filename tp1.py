@@ -206,17 +206,16 @@ def jeuDeCarte():
 
     while recommencer == "o" :
         
-        cartePiochée = randint(0, 12)
-        print(paquetCartes[cartePiochée])
-        paquetCartes.pop(cartePiochée)
+        valeurPiochee = randint(0, 12)
+        couleurPiochee = randint(0, len(paquetCartes[cartePiochee]))
+        print(paquetCartes[cartePiochee][couleurPiochee])
+        paquetCartes.pop(paquetCartes[cartePiochee][couleurPiochee])
 
         for i in range(10):
             prediction = str(input("Pensez-vous que la prochaine carte sera supérieure(s) ou inférieure(i) à cette carte ? : "))
-            cartePiochée = randint(0, 51)
-            print(paquetCartes[cartePiochée])
-            
-            if paquetCartes[cartePiochée][0]
-
-            nouveauPaquet.pop(cartePiochée)
+            valeurPiochee = randint(0, 12)
+            couleurPiochee = randint(0, len(paquetCartes[cartePiochee]))
+            print(paquetCartes[cartePiochee][couleurPiochee])
+            paquetCartes.pop(paquetCartes[cartePiochee][couleurPiochee])
             
 
