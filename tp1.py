@@ -138,7 +138,42 @@ def immatriculation() :
 
 #______________________________________________________________________DLC_______________________________________________________________
 
-#Exercice 2
+#Exercice 1:
+
+def main(nbExo = 0):
+
+
+    repete = True
+
+    while repete == True :
+        print("Quel exercice voulez-vous voir ?")
+        print(" - 1 : IMC\n - 2 : Année Chien\n - 3 : Les n entiers\n - 4 : Valeur Pi\n - 5 : Transformation en binaire\n - 6 : Révision exercice 1\n - 7 : Plaque d'immatriculation")
+        nbExo = int(input())
+        if nbExo == 1 :
+            print(imc())
+        elif nbExo == 2:
+            age = int(input("Donner l'age à transformer : ")) 
+            print(conversionAgeChien(age))
+        elif nbExo == 3:
+            print(nEntier())
+        elif nbExo == 4:
+            approximation = int(input("Donner le nombre d'approximation de pi : ")) 
+            print(conversionAgeChien(approximation))
+        elif nbExo == 5:
+            nbTransfo = int(input("Donner un nombre à transformer : ")) 
+            print(decimalBinaire(nbTransfo))
+        elif nbExo == 6:
+            print(revisionEx1())
+        else :
+            print(plaqueImmatriculation())
+
+        autreExo = str(input("Voulez-vous voir un autre exercice ? (o/n) :  "))
+        if autreExo != "o" :
+            repete = False
+
+print(main())
+
+#Exercice 2:
 
 def fizzBuzz(liste):
     for i in range(len(liste)):
@@ -152,3 +187,36 @@ def fizzBuzz(liste):
             print(liste[i], end = ' ')
 
 fizzBuzz([5,8,7,4,1,3,6,9,5])
+
+#Exercice 3:
+
+def jeuDeCarte():
+    couleur = ["♠", "♣", "♦", "♥"]
+    valeur = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "V", "D", "R", "1"]
+    
+    pointsOrdi = 0
+    pointsJoueur = 0
+
+    paquetCartes = {}
+
+    for i in range(len(valeur)):
+            paquetCartes[valeur[i]] = couleur
+
+    recommencer = "o"
+
+    while recommencer == "o" :
+        
+        cartePiochée = randint(0, 12)
+        print(paquetCartes[cartePiochée])
+        paquetCartes.pop(cartePiochée)
+
+        for i in range(10):
+            prediction = str(input("Pensez-vous que la prochaine carte sera supérieure(s) ou inférieure(i) à cette carte ? : "))
+            cartePiochée = randint(0, 51)
+            print(paquetCartes[cartePiochée])
+            
+            if paquetCartes[cartePiochée][0]
+
+            nouveauPaquet.pop(cartePiochée)
+            
+
