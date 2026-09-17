@@ -77,3 +77,21 @@ print(scoreBaseball(p))
 
 #Exercice 5 :
 
+def ajoutcoef(polynome):
+    coef = float(input("Donnez un nouveau coefficient à ajouter : "))
+    nouveauPolynome = [coef, polynome]
+    return nouveauPolynome
+
+def saisiePolynome():
+    polynome = []
+    degre = int(input("Quel sera le degré de votre polynôme ? : "))
+    for i in range(degre): 
+        coef = float(input(f"Donnez le coefficient de degré {i+1} à ajouter"))
+        polynome = [coef, polynome]
+    return polynome
+
+print(saisiePolynome())
+
+def affichagePolynome():
+while noeud_courant != []:
+    valeur = noeud_courant[0]  
