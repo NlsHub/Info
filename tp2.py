@@ -32,9 +32,9 @@ tedData = {
 }
 classDict["class"]["student"].append(tedData)
 tedMarks = classDict["class"]["student"][1]["marks"].values()
-classDict["class"]["student"][1]["average"] = sum(ted_marks) / len(ted_marks)
+classDict["class"]["student"][1]["average"] = sum(tedMarks) / len(tedMarks)
 totalAverages = classDict["class"]["student"][0]["average"] + classDict["class"]["student"][1]["average"]
-classDict["class"]["average_grade"] = total_averages / len(classDict["class"]["student"])
+classDict["class"]["average_grade"] = totalAverages / len(classDict["class"]["student"])
 print(classDict)
 
 
@@ -55,3 +55,25 @@ def differents(tab):
             return False
     return True
 print(differents(tab))
+
+#Exercice 4:
+
+p = ["10","2","C","D","+"]
+
+def scoreBaseball(p):
+    pileScore = []
+    for i in range(len(p)):
+        if p[i] == "+":
+            pileScore.append(pileScore[-1]+pileScore[-2])
+        elif p[i] == "D":
+            pileScore.append(pileScore[-1]*2)
+        elif p[i] == "C":
+            pileScore.pop()
+        else :
+            pileScore.append(int(p[i]))
+    return pileScore
+
+print(scoreBaseball(p))
+
+#Exercice 5 :
+
