@@ -85,13 +85,39 @@ def ajoutcoef(polynome):
 def saisiePolynome():
     polynome = []
     degre = int(input("Quel sera le degré de votre polynôme ? : "))
-    for i in range(degre): 
-        coef = float(input(f"Donnez le coefficient de degré {i+1} à ajouter"))
+    for i in range(degre+1): 
+        coef = float(input(f"Donnez le coefficient de degré {i} à ajouter : "))
         polynome = [coef, polynome]
     return polynome
 
-print(saisiePolynome())
+def affichagePolynome(polynome):
+    affichage = ""
+    i = 0
+    degre = 0
 
-def affichagePolynome():
-while noeud_courant != []:
-    valeur = noeud_courant[0]  
+    polynome1 = polynome
+
+    while polynome1 != [] :
+        valeur = polynome[0]
+        suivant = polynome[1]
+        polynome = suivant
+        i += 1
+        degre += 1
+
+    if polynome != []:
+        affichage += f"{str(valeur)} + "
+
+    while polynome != [] :
+
+        valeur = polynome[0]
+        suivant = polynome[1]
+        if i == degre-1 :
+            affichage += f"{str(valeur)}x + "
+        else :
+            affichage += f"{str(valeur)}x{i} + "
+        polynome = suivant
+        i -= 1
+    
+    return affichage[:-2]
+
+print(affichagePolynome([5,[6,[8,[3,[]]]]]))
