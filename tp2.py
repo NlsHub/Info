@@ -91,33 +91,36 @@ def saisiePolynome():
     return polynome
 
 def affichagePolynome(polynome):
+    if polynome == []:
+        return "0"
+
+    taille = 0
+    temp = polynome
+    while temp != []:
+        taille += 1
+        temp = temp[1]
+
+    degre = taille - 1
     affichage = ""
-    i = 0
-    degre = 0
 
-    polynome1 = polynome
-
-    while polynome1 != [] :
+    while polynome != []:
         valeur = polynome[0]
-        suivant = polynome[1]
-        polynome = suivant
-        i += 1
-        degre += 1
 
-    if polynome != []:
-        affichage += f"{str(valeur)} + "
+        if degre == 0:
+            affichage += f"{valeur}"
+        elif degre == 1:
+            affichage += f"{valeur}x"
+        else:
+            affichage += f"{valeur}x^{degre}"
 
-    while polynome != [] :
+        polynome = polynome[1]
 
-        valeur = polynome[0]
-        suivant = polynome[1]
-        if i == degre-1 :
-            affichage += f"{str(valeur)}x + "
-        else :
-            affichage += f"{str(valeur)}x{i} + "
-        polynome = suivant
-        i -= 1
-    
-    return affichage[:-2]
+        if polynome != []:
+            affichage += " + "
+
+        degre -= 1
+        
+    return affichage
 
 print(affichagePolynome([5,[6,[8,[3,[]]]]]))
+
