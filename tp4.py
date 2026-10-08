@@ -84,7 +84,10 @@ class Fraction:
 
 
 #Exercice 3:
+
 #♠︎♥︎♦︎♣︎
+
+#Première étape :
 
 import sys
 from random import shuffle
@@ -111,18 +114,20 @@ class Card :
     def is_equal_value(self, card):
         return self.value.value_pts == card.value.value_pts
 
-def __str__(self):
-    return (
-        f"Valeur : {self.value.value_txt} ({self.value.value_pts} pts) | "
-        f"Couleur : {self.color.shade} {self.color.shade_name} | "
-        f"Style : {self.color.foreground_color}/{self.color.background_color}"
-    )
+    def __str__(self):
+        return (
+            f"Valeur : {self.value.value_txt} ({self.value.value_pts} pts) | "
+            f"Couleur : {self.color.shade} {self.color.shade_name} | "
+            f"Style : {self.color.foreground_color}/{self.color.background_color}"
+        )
 
     def __repr__(self):
         return f"Card('{self.value.value_txt}', '{self.color.shade_name}')"
 
+#Deuxième étape :
+
 class Deck :
-    def __init__(self, deck, defausse):
+    def __init__(self):
         self.deck = []
         self.defausse = []
         self.init52_cards()
@@ -151,7 +156,7 @@ class Deck :
         ("♦︎", "carreau", "rouge", "blanc"),
     ]
 
-    self.deck = [Card(val, coul) for coul in couleurs for val in valeurs]
+        self.deck = [Card(val, coul) for coul in couleurs for val in valeurs]
 
     def shuffle(self):
         shuffle(self.deck)
@@ -164,21 +169,60 @@ class Deck :
     def discard(self, card):
         self.defausse.append(card)
 
-carte1 = Card(("10", 10), ("♠︎", "pique", "noir", "blanc"))
-carte2 = Card(("10", 10), ("♥︎", "coeur", "rouge", "blanc"))
-carte3 = Card(("9", 9), ("♦︎", "carreau", "rouge", "blanc"))
+#Troisième étape :
 
-print(carte1)
-print(repr(carte1))
+    def jeuDeCarte(self):
+        
+        pointsOrdi = 0
+        pointsJoueur = 0
 
-mon_deck = Deck()
-print(mon_deck)
+        self.shuffle()
 
-mon_deck.Shuffle()
+        recommencer = "o"
 
-carte_tiree = mon_deck.Draw()
-print(f"Carte piochée : {carte_tiree}")
+        while recommencer == "o" :
 
-mon_deck.Discard(carte_tiree)
+            pointsOrdi = 0
+            pointsJoueur = 0
 
-print(mon_deck)
+            self.init52_cards()
+            self.shuffle()
+            self.defausse.clear()
+
+            carteTiree = self.draw()
+            print(f"carte tirée : {carteTiree}")
+            ancienneCarte = carteTiree
+            self.discard(carteTiree)
+
+            for i in range(10):
+                prediction = str(input("Pensez-vous que la prochaine carte sera supérieure(s) ou inférieure(i) à cette carte ? (s/i): ")).lower()
+                carteTiree = self.draw()
+                print(f"carte tirée : {carteTiree}")
+
+                valeurActuelle = carteTiree.value.value_pts
+                ancienneValeur = ancienneCarte.value.value_pts
+
+                if (prediction == "s" and valeurActuelle < ancienneValeur) or (prediction == "i" and valeurActuelle > ancienneValeur):
+                    pointsOrdi+=1
+                    print("L'ordinateur gagne +1 point")
+                elif (prediction == "s" and valeurActuelle > ancienneValeur) or (prediction == "i" and valeurActuelle < ancienneValeur):
+                    pointsJoueur+=1
+                    print("Vous gagnez +1 point")
+                
+                ancienneCarte = carteTiree
+
+                self.discard(carteTiree)
+
+            if pointsJoueur > pointsOrdi:
+                print(f"Vous avez gagné ! Vous avez {pointsJoueur} points et l'ordinateur n'en a seulement {pointsOrdi}")
+            elif pointsOrdi > pointsJoueur:
+                print((f"Vous avez perdu :( Vous avez {pointsJoueur} points et l'ordinateur en a {pointsOrdi}"))
+            else:
+                print(f"Egalité... Vous avez {pointsJoueur} points et l'ordinateur en a {pointsOrdi}")
+            recommencer = str(input("Voulez-vous recommencer ? (o/n) : ")).lower()
+            pointsOrdi = 0
+            pointsJoueur = 0
+
+
+deck = Deck()
+deck.jeuDeCarte()
