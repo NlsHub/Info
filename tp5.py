@@ -50,7 +50,7 @@ class MilitaryAircraft(Airplane) :
     
     def __str__(self):
         etat = "en vol" if self.fly else "au sol"
-        print(f"Nom de l'avion : {self.name} \n Etat : {etat}\n Mission : {self.mission}")
+        return f"Nom de l'avion : {self.name} \n Etat : {etat}\n Mission : {self.mission}"
 
 class CargoAircraft(Airplane) :
     def __init__(self, name):
@@ -59,7 +59,7 @@ class CargoAircraft(Airplane) :
 
     def __str__(self):
         etat = "en vol" if self.fly else "au sol"
-        print(f"Nom de l'avion : {self.name} \n Etat : {etat}\n Cargaison : {self.shipment}")
+        return f"Nom de l'avion : {self.name} \n Etat : {etat}\n Cargaison : {self.shipment}"
 
 
 class CivilAircraft(Airplane) : 
@@ -67,24 +67,30 @@ class CivilAircraft(Airplane) :
         super().__init__(name)
         self.nbPassager = 0
 
-    def passenger_enter(nb : int):
+    def passenger_enter(self, nb : int):
         self.nbPassager += nb 
 
-    def passenger_leave(nb : int):
+    def passenger_leave(self, nb : int):
         if (self.nbPassager-nb) >= 0 :     
             self.nbPassager -= nb 
 
     def __str__(self):
         etat = "en vol" if self.fly else "au sol"
-        print(f"Nom de l'avion : {self.name} \n Etat : {"en vol" if self.fly == True else "au sol"} \n Nombre de passagers : {self.nbPassager}")
+        return f"Nom de l'avion : {self.name} \n Etat : {"en vol" if self.fly == True else "au sol"} \n Nombre de passagers : {self.nbPassager}"
 
-class Airport(MilitaryAircraft, CivilAircraft, CargoAircraft) :
-    
+class Airport :
+
     def __init__(self):
-        super()__init__(self)
-
-    def add_military(self, plane : MilitaryAircraft):
+        self.airport = []
     
-    def add_cargo(self, plane : CargoAircraft):
+    def add_military(self, plane: MilitaryAircraft):
+        assert isinstance(plane, MilitaryAircraft)
+        self.planes.append(plane)
 
-    def add_civil(self, plane : CivilAircraft):
+    def add_cargo(self, plane: CargoAircraft):
+        assert isinstance(plane, CargoAircraft)
+        self.planes.append(plane)
+
+    def add_civil(self, plane: CivilAircraft):
+        assert isinstance(plane, CivilAircraft)
+        self.planes.append(plane)
