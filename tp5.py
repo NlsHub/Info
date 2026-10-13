@@ -81,7 +81,9 @@ class CivilAircraft(Airplane) :
 class Airport :
 
     def __init__(self):
-        self.airport = []
+        self.militaryPlanes = []
+        self.cargoPlanes = []
+        self.civilPlanes = []
     
     def add_military(self, plane: MilitaryAircraft):
         assert isinstance(plane, MilitaryAircraft)
@@ -94,3 +96,13 @@ class Airport :
     def add_civil(self, plane: CivilAircraft):
         assert isinstance(plane, CivilAircraft)
         self.planes.append(plane)
+
+    def __str__(self):
+        result = "[Airport]\n"
+        for p in self.civilPlanes:
+            result += str(p) + "\n"
+        for p in self.cargoPlanes:
+            result += str(p) + "\n"
+        for p in self.militaryPlanes:
+            result += str(p) + "\n"
+        return result.strip()
